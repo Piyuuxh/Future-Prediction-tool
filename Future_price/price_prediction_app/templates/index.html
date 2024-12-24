@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="{% url 'predict_price' %}">
+    {% csrf_token %}
+    <label for="item_name">Item Name:</label>
+    <input type="text" id="item_name" name="item_name" required>
+    <label for="days_ahead">Days Ahead:</label>
+    <input type="number" id="days_ahead" name="days_ahead" min="1" required>
+    <button type="submit">Predict</button>
+</form>
+{% endblock %}
